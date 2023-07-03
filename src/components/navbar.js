@@ -1,40 +1,42 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const Navbar = () => {
   return (
-    <nav>
-      <div className="logo">
-        <img src="/logo.png" alt="Logo" />
+    <nav className="flex items-center justify-between bg-gray-900 py-4 px-8">
+      <div className="flex items-center mr-4">
+        <Image src="/favicon.ico" height={40} width={40} alt="logo" />
       </div>
-      <ul className="nav-links">
+      <ul className="flex space-x-4 text-white">
         <li>
-          <Link href="/">
-            <a>Home</a>
+          <Link href="/" className="hover:text-gray-300">
+            Home
           </Link>
         </li>
         <li>
-          <Link href="/sports">
-            <a>Sports</a>
+          <Link href="/sports" className="hover:text-gray-300">
+            Sports
           </Link>
         </li>
         <li>
-          <Link href="/science">
-            <a>Science</a>
+          <Link href="/science" className="hover:text-gray-300">
+            Science
           </Link>
         </li>
         <li>
-          <Link href="/technology">
-            <a>Technology</a>
+          <Link href="/technology" className="hover:text-gray-300">
+            Technology
           </Link>
         </li>
         <li>
-          <Link href="/about">
-            <a>About Us</a>
+          <Link href="/about-us" className="hover:text-gray-300">
+            About Us
           </Link>
         </li>
+
         <li>
-          <Link href="/login">
-            <a>Login/Signup</a>
+          <Link href="/login" className="hover:text-gray-300">
+            Login / Signup
           </Link>
         </li>
       </ul>
