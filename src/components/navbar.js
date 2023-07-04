@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const Navbar = () => {
   return (
-    <nav className="flex flex-row items-center justify-around bg-white text-black w-full">
+    <nav className="flex flex-row items-center justify-around bg-white text-black w-full p-5 fixed">
       <div className="flex items-center mr-4">
         <Image
           src="/favicon.ico"
