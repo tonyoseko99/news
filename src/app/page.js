@@ -2,7 +2,6 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Navbar from "@/components/navbar";
-import { useState } from "react";
 
 export default function Home() {
   return (
