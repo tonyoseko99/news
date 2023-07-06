@@ -54,3 +54,18 @@ export const getTechnology = async (req, res) => {
     throw error;
   }
 };
+
+// search
+export const getSearch = async (query) => {
+  try {
+    const { q } = query;
+    const response = await axios.get(
+      `https://newsapi.org/v2/everything?q=${q}&apiKey=${NEWS_API_KEY}`
+    );
+    return response.data;
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+};
+
