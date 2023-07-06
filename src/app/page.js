@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import Image from "next/image";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
@@ -36,10 +37,7 @@ export default function Home() {
                 placeholder="Search for news"
                 className="border-2 border-gray-300 bg-white h-10 px-5 rounded-lg text-sm focus:outline-none text-black max-w-md"
               />
-              <button
-                type="submit"
-                className="absolute right-0 top-0"
-              >
+              <button type="submit" className="absolute right-0 top-0">
                 <svg
                   className="text-black-600 h-4 w-4 fill-current"
                   xmlns="http://www.w3.org/2000/svg"
@@ -60,20 +58,29 @@ export default function Home() {
                 <h3 className="text-xl font-bold text-orange-500">
                   {headline.title}
                 </h3>
-                <div className="flex justify-center">
+                <div className="flex justify-center h-3/5">
                   {headline.urlToImage ? (
                     <Image
                       loader={imageLoader}
                       src={headline.urlToImage}
                       alt={headline.title}
+                      layout="responsive"
                       width={500}
                       height={300}
-                      className="rounded-md object-cover w-full h-48"
+                      className="rounded-md w-full h-48 text-black"
                     />
                   ) : (
                     <div>No Image</div>
                   )}
                   <p className="text-sm text-black">{headline.description}</p>
+                </div>
+                <div className="text-right">
+                  <Link
+                    href={headline.url}
+                    className="text-blue-500 underline hover:text-blue-800"
+                  >
+                    Read More
+                  </Link>
                 </div>
               </li>
             ))}
