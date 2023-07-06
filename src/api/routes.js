@@ -41,3 +41,16 @@ export const getScience = async (req, res) => {
     throw error;
   }
 };
+
+// technology
+export const getTechnology = async (req, res) => {
+  try {
+    const response = await axios.get(
+      `https://newsapi.org/v2/top-headlines?country=us&category=technology&apiKey=${NEWS_API_KEY}`
+    );
+    return response.data;
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+};
