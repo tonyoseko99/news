@@ -17,16 +17,16 @@ function NewsPage({ headlines }) {
           <h2 className="text-3xl font-bold text-white-800">Headlines</h2>
           <SearchBar />
         </div>
-        <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {headlines.map((headline, index) => (
             <li key={index} className="bg-gray-100 p-4 rounded-md">
               {/* Render headline */}
               <h2 className="text-black font-sans text-lg py-2">
                 {headline.title}
               </h2>
-              <div className="flex justify-center">
-                <div className="flex flex-col h-48">
-                  {headline.urlToImage && (
+              <div className="flex flex-col items-center sm:flex-row">
+                {headline.urlToImage && (
+                  <div className="w-full sm:w-1/2">
                     <Image
                       loader={imageLoader}
                       src={headline.urlToImage}
@@ -34,26 +34,23 @@ function NewsPage({ headlines }) {
                       layout="responsive"
                       width={500}
                       height={200}
-                      className="rounded-md mb-2 object-cover w-full sm:h-64 md:h-80 overflow-hidden shadow-lg hover:shadow-2xl transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110"
+                      className="rounded-md mb-2 object-cover w-full overflow-hidden shadow-lg hover:shadow-2xl transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110"
                     />
-                  )}
+                  </div>
+                )}
 
-                  {!headline.urlToImage && (
-                    <div className="flex justify-center items-center bg-gray-300 w-48 h-48">
-                      <p className="text-gray-500">No image available</p>
-                    </div>
-                  )}
+                <div className="w-full sm:w-1/2 sm:pl-4">
+                  <p className="text-gray-500 text-sm">
+                    {headline.description}
+                  </p>
+                  <Link
+                    href={headline.url}
+                    className="text-blue-700 underline hover:text-black"
+                  >
+                    Read More
+                  </Link>
                 </div>
-                <p className="text-gray-500 text-sm px-2">
-                  {headline.description}
-                </p>
               </div>
-              <Link
-                href={headline.url}
-                className="text-blue-700 underline hover:text-black"
-              >
-                Read More
-              </Link>
             </li>
           ))}
         </ul>

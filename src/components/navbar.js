@@ -1,9 +1,18 @@
+"use client";
+import { useState } from "react";
+import { FaBars, FaTimes } from "react-icons/fa";
 import Link from "next/link";
 import Image from "next/image";
 
 const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleToggle = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
-    <nav className="flex flex-row items-center justify-around bg-orange-400 text-white w-full p-5 fixed z-0">
+    <nav className="flex md:flex-row items-center justify-between bg-orange-400 text-white w-full p-5 fixed z-10">
       <div className="flex items-center mr-4">
         <Image
           src="/favicon.ico"
@@ -17,7 +26,17 @@ const Navbar = () => {
         </Link>
       </div>
 
-      <ul className="flex space-x-4 text-black">
+      {/* Toggle button */}
+      <button className="md:hidden text-white text-2xl items-right" onClick={handleToggle}>
+        {isOpen ? <FaTimes /> : <FaBars />}
+      </button>
+
+      {/* Navbar links */}
+      <ul
+        className={`${
+          isOpen ? "flex flex-col md:flex-row" : "hidden"
+        } space-y-4 md:space-y-0 md:space-x-4 text-black md:items-center md:flex`}
+      >
         <li>
           <Link href="/sports" className="hover:text-white">
             Sports
@@ -38,7 +57,6 @@ const Navbar = () => {
             About Us
           </Link>
         </li>
-
         <li>
           <Link href="/login" className="hover:text-white">
             Login / Signup
