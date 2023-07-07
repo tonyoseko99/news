@@ -21,7 +21,7 @@ export default function Home() {
   }, []);
   return (
     <>
-      <Navbar />
+      
       <NewsPage headlines={headlines} />
       <Footer />
     </>
