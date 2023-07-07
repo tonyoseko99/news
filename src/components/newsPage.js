@@ -14,34 +14,40 @@ function NewsPage({ headlines }) {
     <main className="flex max-h-screen flex-col items-center p-10 overflow-auto">
       <div className="pt-20">
         <div className="w-full flex justify-between items-center mb-3">
-          <h2 className="text-black-700">Welcome to Citizen News</h2>
+          <h2 className="text-3xl font-bold text-white-800">Headlines</h2>
           <SearchBar />
         </div>
         <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {headlines.map((headline, index) => (
             <li key={index} className="bg-gray-100 p-4 rounded-md">
               {/* Render headline */}
-              <h2 className="text-orange-700 font-sans text-lg">
+              <h2 className="text-black font-sans text-lg py-2">
                 {headline.title}
               </h2>
               <div className="flex justify-center">
-                {headline.urlToImage && (
-                  <Image
-                    loader={imageLoader}
-                    src={headline.urlToImage}
-                    alt={headline.title}
-                    width={300}
-                    height={200}
-                  />
-                )}
+                <div className="flex flex-col h-48">
+                  {headline.urlToImage && (
+                    <Image
+                      loader={imageLoader}
+                      src={headline.urlToImage}
+                      alt={headline.title}
+                      layout="responsive"
+                      width={500}
+                      height={200}
+                      className="rounded-md mb-2 object-cover w-full sm:h-64 md:h-80 overflow-hidden shadow-lg hover:shadow-2xl transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110"
+                    />
+                  )}
 
-                {!headline.urlToImage && (
-                  <div className="flex justify-center items-center bg-gray-300 w-48 h-48">
-                    <p className="text-gray-500">No image available</p>
-                  </div>
-                )}
+                  {!headline.urlToImage && (
+                    <div className="flex justify-center items-center bg-gray-300 w-48 h-48">
+                      <p className="text-gray-500">No image available</p>
+                    </div>
+                  )}
+                </div>
+                <p className="text-gray-500 text-sm px-2">
+                  {headline.description}
+                </p>
               </div>
-              <p className="text-gray-500 text-sm">{headline.description}</p>
               <Link
                 href={headline.url}
                 className="text-blue-700 underline hover:text-black"
