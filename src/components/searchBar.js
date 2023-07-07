@@ -1,7 +1,5 @@
 "use client";
 import { useState } from "react";
-import { FaBeer, AiOutlineSearch } from "react-icons/fa";
-
 import Image from "next/image";
 import Link from "next/link";
 import { getSearch } from "@/api/routes";
@@ -32,16 +30,21 @@ function SearchBar() {
   };
 
   return (
-    <div className="flex flex-col justify-center items-end">
-      <form onSubmit={handleSubmit}>
+    <div>
+      <form onSubmit={handleSubmit} className="flex flex-col md:flex-row mb-4">
         <input
           type="text"
           placeholder="Search for news"
-          className="border-2 border-gray-300 bg-white h-10 px-5 rounded-lg text-sm focus:outline-none text-black max-w-md text-center w-full"
+          className="border-2 border-gray-300 bg-white h-10 px-5 rounded-lg text-sm focus:outline-none text-black w-full mb-2 md:mb-0 md:mr-2"
           value={searchItem}
           onChange={handleChange}
         />
-        
+        <button
+          type="submit"
+          className="bg-orange-500 text-white rounded-md px-4 py-2 hover:bg-orange-600"
+        >
+          Search
+        </button>
       </form>
 
       <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -51,9 +54,9 @@ function SearchBar() {
             <h2 className="text-black font-sans text-lg py-2">
               {searchResult.title}
             </h2>
-            <div className="flex justify-center">
-              <div className="flex flex-col h-48">
-                {searchResult.urlToImage && (
+            <div className="flex flex-col md:flex-row">
+              <div className="flex justify-center">
+                {searchResult.urlToImage ? (
                   <Image
                     loader={imageLoader}
                     src={searchResult.urlToImage}
@@ -63,10 +66,8 @@ function SearchBar() {
                     height={200}
                     className="rounded-md mb-2 object-cover w-full sm:h-64 md:h-80 overflow-hidden shadow-lg hover:shadow-2xl transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110"
                   />
-                )}
-
-                {!searchResult.urlToImage && (
-                  <div className="flex justify-center items-center bg-gray-300 w-48 h-48">
+                ) : (
+                  <div className="flex justify-center items-center bg-gray-300 w-full h-48">
                     <p className="text-gray-500">No image available</p>
                   </div>
                 )}

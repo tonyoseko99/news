@@ -12,11 +12,10 @@ function NewsPage({ headlines }) {
 
   return (
     <main className="flex max-h-screen flex-col items-center p-10 overflow-auto">
-      <div className="pt-20">
-        <div className="w-full flex justify-between items-center mb-3">
-          <h2 className="text-3xl font-bold text-white-800">Headlines</h2>
-          <SearchBar />
-        </div>
+      <div className="pt-20 flex flex-col items-center justify-between">
+        <h2 className="text-3xl font-bold text-white-800">Headlines</h2>
+
+        <SearchBar />
         <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {headlines.map((headline, index) => (
             <li key={index} className="bg-gray-100 p-4 rounded-md">
