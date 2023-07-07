@@ -1,34 +1,60 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# CITIZEN NEWS
 
-## Getting Started
+CITIZEN NEWS is a news website that fetches the latest news articles from around the world using the News API. It provides users with a platform to stay updated on various topics including sports, science, technology, and more. The project is built with Next.js, Tailwind CSS, and utilizes the Axios library for API requests.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+- View top headlines from various news sources
+- Browse news articles based on different categories
+- Search for news articles using keywords
+- Responsive design for optimal viewing on different devices
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Installation
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+1. Clone the repository:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+   ```bash
+   git clone https://github.com/your-username/citizen-news.git
 
-## Learn More
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+2. Navigate to the project directory:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   ```bash
+   cd citizen-news
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+3. Install the dependencies:
 
-## Deploy on Vercel
+   ```bash
+   npm install
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+4. Create a .env.local file in the root directory and add your News API key:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+   ```bash
+    NEXT_PUBLIC_NEWS_API_KEY=your-api-key
+   ```
+
+5. Run the development server:
+
+   ```bash
+   npm run dev
+   ```
+
+## Usage
+
+- On the home page, you can find the latest headlines from various news sources.
+- Use the navigation menu to explore news articles based on different categories like sports, science, and technology.
+- Use the search bar to search for news articles using keywords.
+- Click on a news article to read the full article on the source website.
+
+6. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## Contributing
+
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
